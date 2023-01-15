@@ -35,6 +35,28 @@ if (isset($_POST ['delete'])) {
   $orders->deleteOrder();
 }
 
+if(isset($_POST['search']))
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT * FROM `orders` WHERE CONCAT(`order_id`, `customer_id`, `order_detail`, `order_quantity`, `order_price`, `order_image`, `order_time`) LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable($query);
+    
+}
+ else {
+    $query = "SELECT * FROM `orders`";
+    $search_result = filterTable($query);
+}
+
+// function to connect and execute the query
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "", "dingofood");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
+
 ?>
 
 <!DOCTYPE html>

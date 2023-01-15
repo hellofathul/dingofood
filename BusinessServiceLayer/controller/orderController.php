@@ -71,6 +71,11 @@ class orderController{
             window.location = '../../ApplicationLayer/ManageOrderInterface/cart.php?order_id=".$_POST['order_id']."';</script>";
         }
     }
+
+    function search($name){
+         $orders = new orderModel();
+        return $orders->search($name);
+     }
      } 
 
 ?>

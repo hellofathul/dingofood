@@ -46,7 +46,11 @@ class orderModel{
         $args = [':order_id'=>$this->order_id];
         return DB::run($sql,$args);
     }
-   
+
+    //Search
+    function search($name){
+        $sql = "SELECT * FROM orders WHERE order_detail =  '$name'";
+         return DB::run($sql);}
 
     }
 

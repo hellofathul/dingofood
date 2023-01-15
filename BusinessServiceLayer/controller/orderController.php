@@ -59,6 +59,7 @@ class orderController{
             }
         }
 
+        
         //To Update order from Orders table using order id where order_id=order_id - NUREEN
         function updateOrder(){
         // To get and set quantity from cartModel class.

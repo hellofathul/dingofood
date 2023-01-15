@@ -46,8 +46,7 @@ $name = $_SESSION['username'];
 if(isset($_POST['search']))
 {
     $valueToSearch = $_POST['valueToSearch'];
-    // search in all table columns
-    // using concat mysql function
+    // search in all table column
     $query = "SELECT * FROM `menu` WHERE CONCAT(`menu_id`, `menu_name`, `menu_category`, `menu_description`, `menu_status`, `cost`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
     
@@ -336,10 +335,10 @@ $sno = $row + 1;
 
           <div class="col-sm-20 main-content">
 
-            <form action="/dingofood/ApplicationLayer/ManageMenuInterface/viewMenu.php" method="post">
+          <form action="/dingofood/ApplicationLayer/ManageMenuInterface/viewMenu.php" method="post">
             <div style="display:flex;">
-              <input type="text" name="valueToSearch" placeholder="Search menu..."> &nbsp;
-              <input style="width: 30%; background-color: skyblue; color:black;" type="submit" name="search" value="Filter">
+              <input type="text" name="valueToSearch" placeholder="Search here..."> &nbsp;
+              <input style="width: 40%; background-color: yellow; color:black;" type="submit" name="search" value="Search">
             </div>
             <br>
             

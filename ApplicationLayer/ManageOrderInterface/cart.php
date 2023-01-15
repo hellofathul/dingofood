@@ -40,7 +40,7 @@ if(isset($_POST['search']))
     $valueToSearch = $_POST['valueToSearch'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM `orders` WHERE CONCAT(`order_id`, `customer_id`, `order_detail`, `order_quantity`, `order_price`, `order_image`, `order_time`) LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM `orders` WHERE CONCAT(`order_detail`, `order_quantity`, `order_price`, ) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
     
 }
@@ -367,6 +367,12 @@ function filterTable($query)
               </div>
               <div class="card-body">
                 <center>
+                <form action="/dingofood-1/ApplicationLayer/ManageOrderInterface/cart.php" method="post">
+<div style="display:flex;">
+  <input type="text" name="valueToSearch" placeholder="Search"> &nbsp;
+  <input style="width: 10%; background-color: skyblue; color:black;" type="submit" name="search" value="search">
+</div>
+<br>
                   <form action="" method="POST">
                     <table id="emp_table" width="100%" border="0" >
                       <tr class="tr_header" >
@@ -390,6 +396,18 @@ function filterTable($query)
                           $isrc = '../../img/'; 
                           $p = "chckbox"
                       ?>
+                      <?php while($row = mysqli_fetch_array($search_result)):?>
+                <tr>
+                    <td><?php echo $row['order_quantity'];?></td>
+                    <td><?php echo $row['order_price'];?></td>
+                    <td><?php echo $row['order_image'];?></td>
+                    
+                </tr>
+                <?php endwhile;?>
+            </table>
+        </form>
+
+            <br>
                     <!-- CART DETAILS - maintain by Alia -->
                     
                       <tr>
@@ -445,7 +463,11 @@ function filterTable($query)
                    <td><button style="width: 30%;" class="btn btn--radius-2 btn--black" input type="button" name = "checkout" value="checkout" onclick="location.href='/Project/ApplicationLayer/ManageOrderInterface/checkout.php'">Checkout</button></td>
                    <td>&nbsp</td>
                    <td><button style="width: 30%;" class="btn btn--radius-2 btn--black" input type="button" name = "checkout" value="checkout" onclick="location.href = '/Project/ApplicationLayer/ManageMenuInterface/viewMenu.php'">CONTINUE SHOPPING</button></td>
-                 
+
+                   <br></br>
+                   <div class="col-sm-20 main-content">
+
+
 
                    
                               

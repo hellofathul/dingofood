@@ -46,8 +46,7 @@ $name = $_SESSION['username'];
 if(isset($_POST['search']))
 {
     $valueToSearch = $_POST['valueToSearch'];
-    // search in all table columns
-    // using concat mysql function
+    // search in all table column
     $query = "SELECT * FROM `menu` WHERE CONCAT(`menu_id`, `menu_name`, `menu_category`, `menu_description`, `menu_status`, `cost`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
     

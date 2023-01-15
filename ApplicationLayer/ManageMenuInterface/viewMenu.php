@@ -335,7 +335,7 @@ $sno = $row + 1;
 
           <div class="col-sm-20 main-content">
 
-            <form action="/dingofood/ApplicationLayer/ManageMenuInterface/viewMenu.php" method="post">
+          <form action="/dingofood/ApplicationLayer/ManageMenuInterface/viewMenu.php" method="post">
             <div style="display:flex;">
               <input type="text" name="valueToSearch" placeholder="Search here..."> &nbsp;
               <input style="width: 40%; background-color: yellow; color:black;" type="submit" name="search" value="Search">

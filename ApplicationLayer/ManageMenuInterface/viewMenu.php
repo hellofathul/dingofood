@@ -338,8 +338,8 @@ $sno = $row + 1;
 
             <form action="/dingofood/ApplicationLayer/ManageMenuInterface/viewMenu.php" method="post">
             <div style="display:flex;">
-              <input type="text" name="valueToSearch" placeholder="Search menu..."> &nbsp;
-              <input style="width: 30%; background-color: skyblue; color:black;" type="submit" name="search" value="Filter">
+              <input type="text" name="valueToSearch" placeholder="Search here..."> &nbsp;
+              <input style="width: 40%; background-color: yellow; color:black;" type="submit" name="search" value="Search">
             </div>
             <br>
             
